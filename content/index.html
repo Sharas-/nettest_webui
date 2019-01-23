@@ -1,0 +1,28 @@
+<html>
+    <head>
+     <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous">
+     </script>
+     <script>
+            function showData(url, dataName)
+            {
+                $.get(url, function(data){ alert(dataName + ": " + JSON.stringify(data, null, 4)) });
+            }
+
+            $(function()
+            {
+                $("#btnInfo").click(function() { showData("api/ping/info", "info") });
+                $("#btnTime").click(function() { showData("api/time", "time") });
+            });
+        </script>
+    </head>
+    <body style="background-image: url('background.jpg')">
+        <div>
+            App tier functions:
+            <button id="btnTime">show time</button>
+            <button id="btnInfo">show app info</button>
+        </div>
+    </body>
+</html>
